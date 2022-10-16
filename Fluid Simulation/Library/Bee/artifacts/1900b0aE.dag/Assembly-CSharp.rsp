@@ -320,6 +320,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/FluidEmitter.cs"
 "Assets/ParticleDespawner.cs"
+"Assets/SPH.cs"
 "Assets/WaveWall.cs"
 -langversion:8.0
 
