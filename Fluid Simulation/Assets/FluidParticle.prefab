@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8700349761960499303}
   - component: {fileID: 8700349761960499302}
   - component: {fileID: 8700349761960499322}
+  - component: {fileID: 6908047839280103516}
+  - component: {fileID: 6797637505223008571}
   m_Layer: 0
   m_Name: FluidParticle
   m_TagString: Untagged
@@ -113,3 +115,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6908047839280103516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8700349761960499301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cde45af8dae3fe449dbbe5cf5a7a03f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Up: {x: 0, y: 0, z: 0}
+  Right: {x: 0, y: 0, z: 0}
+  Scale: {x: 0, y: 0}
+--- !u!114 &6797637505223008571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8700349761960499301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3c547f77d67264b9f1bdd4b62dc73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DespawnTime: 5
