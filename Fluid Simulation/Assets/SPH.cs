@@ -7,19 +7,15 @@ public class SPH : MonoBehaviour
     private struct SPHParticle
     {
         public Vector3 position;
-
         public Vector3 velocity;
         public Vector3 forcePhysic;
         public Vector3 forceHeading;
 
         public float density;
         public float pressure;
-
         public int parameterID;
 
         public GameObject go;
-
-
 
         public void Init(Vector3 _position, int _parameterID, GameObject _go)
         {
@@ -34,7 +30,6 @@ public class SPH : MonoBehaviour
             pressure = 0.0f;
         }
     }
-
 
 
     [System.Serializable]
@@ -70,15 +65,11 @@ public class SPH : MonoBehaviour
         }
     }
 
-
-
-    // Consts
     private static Vector3 GRAVITY = new Vector3(0.0f, -9.81f, 0.0f);
     private const float GAS_CONST = 2000.0f;
     private const float DT = 0.0008f;
     private const float BOUND_DAMPING = -0.5f;
 
-    // Properties
     [Header("Import")]
     [SerializeField] private GameObject character0Prefab = null;
 
@@ -90,25 +81,19 @@ public class SPH : MonoBehaviour
     [SerializeField] private int amount = 250;
     [SerializeField] private int rowSize = 16;
 
-    // Data
     private SPHParticle[] particles;
-
-
 
     private void Start()
     {
         InitSPH();
     }
 
-
-
     private void Update()
     {
         ComputeDensityPressure();
-        ComputeForces();
+        Forces();
         Integrate();
-        ComputeColliders();
-
+        Colliders();
         ApplyPosition();
     }
 
@@ -164,9 +149,8 @@ public class SPH : MonoBehaviour
 
 
 
-    private void ComputeColliders()
+    private void Colliders()
     {
-        // Get colliders
         GameObject[] collidersGO = GameObject.FindGameObjectsWithTag("SPHCollider");
         SPHCollider[] colliders = new SPHCollider[collidersGO.Length];
         for (int i = 0; i < colliders.Length; i++)
@@ -227,7 +211,7 @@ public class SPH : MonoBehaviour
 
 
 
-    private void ComputeForces()
+    private void Forces()
     {
         for (int i = 0; i < particles.Length; i++)
         {
