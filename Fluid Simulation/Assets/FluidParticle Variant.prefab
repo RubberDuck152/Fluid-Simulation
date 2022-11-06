@@ -9,7 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8700349761960499301, guid: b118a6c97a467fc4e8f87b20b9274f57, type: 3}
       propertyPath: m_Name
-      value: FluidParticle#2
+      value: FluidParticle Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700349761960499303, guid: b118a6c97a467fc4e8f87b20b9274f57, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8700349761960499321, guid: b118a6c97a467fc4e8f87b20b9274f57, type: 3}
       propertyPath: m_RootOrder
@@ -57,4 +61,5 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6797637505223008571, guid: b118a6c97a467fc4e8f87b20b9274f57, type: 3}
+    - {fileID: 6908047839280103516, guid: b118a6c97a467fc4e8f87b20b9274f57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b118a6c97a467fc4e8f87b20b9274f57, type: 3}
