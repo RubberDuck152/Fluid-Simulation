@@ -4,54 +4,27 @@ using UnityEngine;
 
 public class WaveWall : MonoBehaviour
 {
-    public GameObject Position1;
-    public GameObject Position2;
-    public GameObject Wall;
-    public float MoveSpeed;
-    public bool active = true;
+    public Transform pointB;
 
-    private void Update()
+    IEnumerator Start()
     {
-        if (active == true)
+        var pointA = transform.position;
+        while (true)
         {
-            StopCoroutine(MoveToSea(Position1.transform.position));
-            StartCoroutine(MoveToShore(Position2.transform.position));
-        }
-
-        if (active == false)
-        {
-            StopCoroutine(MoveToShore(Position2.transform.position));
-            StartCoroutine(MoveToSea(Position1.transform.position));
+            yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, 3.0f));
+            yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, 3.0f));
         }
     }
 
-    IEnumerator MoveToShore(Vector3 goalPos)
+    IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
     {
-        float dist = Vector3.Distance(Wall.transform.position, goalPos);
-
-        if (dist > 0.0001f)
+        var i = 0.0f;
+        var rate = 0.25f / time;
+        while (i < 1.0f)
         {
-            Wall.transform.position = Vector3.Lerp(Wall.transform.position, goalPos, MoveSpeed * Time.deltaTime);
+            i += Time.deltaTime * rate;
+            thisTransform.position = Vector3.Lerp(startPos, endPos, i);
+            yield return null;
         }
-
-        yield return new WaitForSeconds(2);
-
-        active = !active;
-        StopCoroutine(MoveToShore(Position2.transform.position));
-    }
-
-    IEnumerator MoveToSea(Vector3 goalPos)
-    {
-        float dist = Vector3.Distance(Wall.transform.position, goalPos);
-
-        if (dist > 0.0001f)
-        {
-            Wall.transform.position = Vector3.Lerp(Wall.transform.position, goalPos, MoveSpeed * Time.deltaTime);
-        }
-
-        yield return new WaitForSeconds(2);
-
-        active = !active;
-        StopCoroutine(MoveToSea(Position1.transform.position));
     }
 }
